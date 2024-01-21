@@ -10,13 +10,13 @@ function mostrarTareas() {
     listaTareas.innerHTML = '';
 
     tareas.forEach((tarea, index) => {
-        const li = document.createElement('li');
-        li.innerHTML = `
+        const lista = document.createElement('li');
+        lista.innerHTML = `
             <span>${tarea.descripcion}</span>
             <input type="checkbox" onchange="marcarComoCompletada(${index})" ${tarea.completado ? 'checked' : ''}>
             <button onclick="borrarTarea(${index})">Eliminar</button>
         `;
-        listaTareas.appendChild(li);
+        listaTareas.appendChild(lista);
     });
 
     actualizarTareas();
@@ -50,8 +50,8 @@ function actualizarTareas() {
     const totalTareas = document.getElementById('totalTareas');
     const tareasCompletadas = document.getElementById('tareasCompletadas');
 
-    totalTareas.textContent = tareas.length;
-    tareasCompletadas.textContent = tareas.filter(tarea => tarea.completado).length;
+    totalTareas.innerHTML = tareas.length;
+    tareasCompletadas.innerHTML = tareas.filter(tarea => tarea.completado).length;
 }
 
 mostrarTareas();
@@ -59,8 +59,8 @@ console.log(mostrarTareas)
 
 
 // 1. agregar 3 tareas definidas
-//2. realizar la funcion para ordenar las tareas y agregarlas (utilizar for o forEach)
-// 3.crear una funcion para agregar tarea
+// 2. realizar la funcion para ordenar las tareas y agregarlas (utilizar for o forEach)
+// 3. crear una funcion para agregar tarea
 // 4. crear una funcion para eliminar tareas
 // 5. crear funcion para marcar las tareas completadas
 // 6. crear una funcion para actualizar las estadisticas de total de tareas y tareas completadas.
